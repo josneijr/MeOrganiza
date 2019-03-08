@@ -1,6 +1,7 @@
 import * as firebase from 'firebase'
 
-let database
+// eslint-disable-next-line
+let database = undefined;
 
 export const init = () => {
 
