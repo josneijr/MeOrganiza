@@ -1,26 +1,20 @@
 import styled from 'styled-components';
 import colors from 'components/atoms/colors';
 
-interface Props {
+interface StyledButtonProps {
     primary?: boolean,
     secondary?: boolean
 }
 
-const Button = styled.button<Props>`
+const StyledButton = styled.button<StyledButtonProps>`
     width: 12vw;
-    height: 50px;
+    height: 60px;
     font-size: 1em;
     border-radius: 5px;
     border: none;
-
-    color: ${(p) => {
-        if (p.secondary)
-            return 'black';
-
-        return 'white';
-    }};
-    color: ${(p) => p.secondary ? 'black' : 'white'};
-    background-color: ${(p) => p.secondary ? colors.$green5 : colors.$grey1};
+    color: ${p => p.secondary ? 'black' : 'white'};
+    background-color: ${(p) => p.secondary ? colors.$secondary : colors.$primary};
+    margin: auto;
 `;
 
-export default Button;
+export default StyledButton;

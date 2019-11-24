@@ -2,36 +2,38 @@ import React, { Component } from 'react';
 import Input from 'components/atoms/input';
 import Button from 'components/atoms/button';
 import styled from 'styled-components';
+import colors from 'components/atoms/colors';
 
-const Frame = styled.div`
+const Form = styled.form`
     padding: 30px;
     display: grid;
     grid-row-gap: 10px;
-    grid-template-rows: 1fr 1.5fr 1.5fr 1fr;
+    grid-template-rows: 1fr 1.5fr 1fr 1fr;
     width: 80vw;
     max-width: 400px;
-    background-color: green;
+    background-color: ${colors.$background};
+    position: relative;
 `;
 
-class LoginField extends Component {
+class LoginForm extends Component {
     constructor(props: object) {
         super(props);
         this.state = {};
     }
     render() {
         return (
-            <Frame>
+            <Form>
                 <Input fullWidth placeholder="usuário" updateValue={(v: any) => console.log(v)} />
-                <Input fullWidth placeholder="senha" updateValue={(v: any) => console.log(v)} />
-                <Button primary>
+                <Input fullWidth placeholder="senha" type="password" updateValue={(v: any) => console.log(v)} />
+                <Button primary type="submit">
                     login
                 </Button>
                 <Button secondary>
                     sign up
                 </Button>
-            </Frame>
+            </Form>
         );
     }
 }
 
-export default LoginField;
+export default LoginForm;

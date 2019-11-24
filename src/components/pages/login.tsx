@@ -1,20 +1,9 @@
 import React from 'react';
-import LoginField from 'components/structures/loginField';
-import styled from 'styled-components';
-import colors from 'components/atoms/colors';
-
-const Background = styled.div`
-    width: 130vw;
-    height: 130vh;
-    background-color: ${colors.$grey1}
-`;
+import LoginTemplate from 'components/templates/login';
 
 const Login: React.FC = () => {
     return (
-        <>
-            {/* <Background /> */}
-            <LoginField />
-        </>
+        <LoginTemplate />
     );
 }
 
