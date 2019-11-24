@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
 import Input from 'components/atoms/input';
 import Button from 'components/atoms/button';
+import styled from 'styled-components';
+
+const Frame = styled.div`
+    padding: 30px;
+    display: grid;
+    grid-row-gap: 10px;
+    grid-template-rows: 1fr 1.5fr 1.5fr 1fr;
+    width: 80vw;
+    max-width: 400px;
+    background-color: green;
+`;
 
 class LoginField extends Component {
     constructor(props: object) {
@@ -9,18 +20,18 @@ class LoginField extends Component {
     }
     render() {
         return (
-            <div>
-                <Input placeholder="Teste" updateValue={(v: any) => console.log(v)} />
-                <Input placeholder="Teste" updateValue={(v: any) => console.log(v)} />
+            <Frame>
+                <Input fullWidth placeholder="usuário" updateValue={(v: any) => console.log(v)} />
+                <Input fullWidth placeholder="senha" updateValue={(v: any) => console.log(v)} />
                 <Button primary>
-                    Teste
+                    login
                 </Button>
                 <Button secondary>
-                    Teste
+                    sign up
                 </Button>
-            </div>
+            </Frame>
         );
     }
 }
 
-export default loginField;
+export default LoginField;
