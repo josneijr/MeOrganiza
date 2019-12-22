@@ -11,7 +11,7 @@ const Form = styled.form`
     position: relative;
 `;
 
-class LoginForm extends Component {
+class SignupForm extends Component {
     constructor(props: object) {
         super(props);
         this.state = {};
@@ -19,6 +19,7 @@ class LoginForm extends Component {
     render() {
         return (
             <Form>
+                <Input fullWidth placeholder="nome completo" updateValue={(v: any) => console.log(v)} />
                 <Input fullWidth placeholder="email" type="email" updateValue={(v: any) => console.log(v)} />
                 <Input fullWidth placeholder="senha" type="password" updateValue={(v: any) => console.log(v)} />
             </Form>
@@ -26,4 +27,4 @@ class LoginForm extends Component {
     }
 }
 
-export default LoginForm;
+export default SignupForm;

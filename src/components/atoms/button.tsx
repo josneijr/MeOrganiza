@@ -12,9 +12,15 @@ const StyledButton = styled.button<StyledButtonProps>`
     font-size: 1em;
     border-radius: 5px;
     border: none;
-    color: ${p => p.secondary ? 'black' : 'white'};
+    color: white;
     background-color: ${(p) => p.secondary ? colors.$secondary : colors.$primary};
     margin: auto;
+    z-index: 99;
+
+    &:hover {
+        background-color: ${(p) => p.secondary ? colors.$secondaryHover : colors.$primaryHover};
+    }
+    
 `;
 
 export default StyledButton;

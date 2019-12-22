@@ -25,8 +25,11 @@ const colorDef = {
 };
 
 const colors = {
-    $primary: colorDef.$blue1,
-    $secondary: colorDef.$green1,
+    $primary: colorDef.$blue2,
+    $secondary: colorDef.$yellow1,
+
+    $primaryHover: colorDef.$blue1,
+    $secondaryHover: colorDef.$yellow3,
 
     $background: colorDef.$grey1,
     $background2: colorDef.$grey2,
