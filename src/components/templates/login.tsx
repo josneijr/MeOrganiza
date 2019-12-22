@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import LoginForm from 'components/organisms/loginForm';
 import SignupForm from 'components/organisms/signupForm';
-import StyleLogo from 'components/atoms/logo';
+import Logo from 'components/atoms/logo';
 import styled from 'styled-components';
 import colors from 'components/atoms/colors';
 import Button from 'components/atoms/button';
@@ -10,30 +10,26 @@ interface StyledBackgroundProps {
     moveTo?: string
 }
 
-const StyledBackground = styled.div<StyledBackgroundProps>`
-
-    position: absolute;
-    transform: translateX(${p => {
-        switch (p.moveTo) {
-            case 'right':
-                return '15vw';
-            case 'left':
-                return '-15vw';
-            default:
-                return '0';
-        }
-    }});
-`;
-
-const StyledLogin = styled.div`
+const StyledFrame = styled.div`
     width: 100vw;
     height: 100vh;
     display: grid;
-    grid-template-columns: 0.2fr 0.8fr;
+    grid-template-columns: [logo] 0.2fr [content] 0.8fr;
+    align-items: start;
 `;
 
-const StyledForm = styled.div`
-    grid-column: 2;
+const StyledLogo = styled.div`
+    grid-column: logo;
+    height: 100%;
+    width: 100%;
+`;
+
+const StyledContent = styled.div`
+    grid-column: content;
+    display: grid;
+    justify-items: center; 
+    align-content: center;
+    grid-row-gap: 10vh;
     width: 100%;
     height: 100%;
     background-color: ${colors.$background};
@@ -43,9 +39,11 @@ const LoginTemplate: React.FC = () => {
     const [isSignup, setIsSignup] = useState(false);
 
     return (
-        <StyledLogin>
-            <StyleLogo />
-            <StyledForm>
+        <StyledFrame>
+            <StyledLogo>
+                <Logo />
+            </StyledLogo>
+            <StyledContent>
                 {
                     isSignup ? <SignupForm /> : <LoginForm />
                 }
@@ -55,8 +53,8 @@ const LoginTemplate: React.FC = () => {
                 <Button secondary onClick={v => setIsSignup(!isSignup)}>
                     {isSignup ? "cancel" : "sign up"}
                 </Button>
-            </StyledForm>
-        </StyledLogin>
+            </StyledContent>
+        </StyledFrame>
     );
 }
 
