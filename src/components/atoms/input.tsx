@@ -23,6 +23,7 @@ interface InputProps {
     fullWidth?: boolean
     light?: boolean
     type?: string
+    name: string
     updateValue: (a0: string) => void
 }
 
